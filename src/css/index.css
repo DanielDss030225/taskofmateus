@@ -1,0 +1,530 @@
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body com textura e animação suave de fade-in */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  width: 100vw;
+  color: rgb(87, 87, 87);
+  background-color: #2b2b2b;
+  background-image:
+    radial-gradient(circle at center, #3a3a3a 1px, transparent 0),
+    radial-gradient(circle at center, #2b2b2b 0%, #4CAF50 120%);
+  background-size: 20px 20px, cover;
+  background-repeat: repeat, no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow-y: auto;
+  min-height: 100vh;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  padding-top: 20px;
+}
+
+/* Container principal */
+.container {
+  background-color: #2c2c2c;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  padding: 5px 20px 5px 30px;
+  width: 600px;
+  text-align: center;
+  min-height: 465px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoração superior do container - faixa fluida com cantos arredondados */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(90deg, #4CAF50, #444, #4CAF50);
+  background-size: 200% 100%;
+  animation: pulseBar 3s infinite linear;
+
+  border-top-left-radius: -30px;
+  border-top-right-radius: -30px;
+  border-bottom-left-radius: -30px;
+  border-bottom-right-radius: -30px;
+  transform: translateY(-40%); /* empurra metade da altura para cima */
+  z-index: 1;
+}
+
+
+@keyframes pulseBar {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Resto do CSS permanece inalterado... */
+
+
+
+
+
+
+
+/* Página 2 */
+.page2 {
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  flex-direction: column;
+
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Títulos h1 */
+h1 {
+  color: #4CAF50;
+  margin-bottom: 0px;
+  user-select: none;
+margin-top: 0px;
+  animation: slideUpFade 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+  margin-top: 0px;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botões com animações e sombra */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  margin-left: 20px;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px #3b803bcc;
+}
+
+/* Container para opções input + botão */
+.opcoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Inputs estilizados com foco animado */
+.opcoes input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input.tituloEnquete {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #444;
+  font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  user-select: text;
+}
+
+.opcoes input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input.tituloEnquete:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+  background-color: #353535;
+  outline: none;
+}
+
+input:hover {
+  background-color: #333;
+}
+
+input::placeholder {
+  color: #756f6f;
+  font-style: italic;
+}
+
+/* Botões específicos */
+.buttonSalvarbtn,
+.buttonAdicionar,
+.buttonPequeno {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 60%;
+  max-width: 600px;
+  margin: 10px 0;
+  padding: 12px 20px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.buttonAdicionar:hover,
+.buttonSalvarbtn:hover,
+.buttonPequeno:hover {
+  background-color: #45a049;
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px #3b803bcc;
+}
+
+/* Wrapper para adição de opções */
+.adicionarOpcoes {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Lista estilizada com hover suave */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto;
+  max-width: 95%;
+}
+
+ul li {
+  background-color: #333;
+  margin-bottom: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 60px;
+  user-select: none;
+}
+
+ul li:hover {
+  transform: scale(1.02);
+  background-color: #444;
+  box-shadow: 0 1px 2px #4caf5077;
+}
+
+/* Inputs e textos responsivos e legíveis */
+input.tituloEnquete {
+  width: 100%;
+  max-width: 498px;
+  display: block;
+  padding: 14px 14px;
+  font-size: 18px;
+  background-color: #2c2c2c;
+  border: 2px solid #444;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 12px;
+  margin-left: 10px;
+  
+  
+}
+
+/* Radio buttons estilizados */
+input.radio-estilizado {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #222;
+  border: 2px solid #777;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+input.radio-estilizado:checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+input.radio-estilizado:checked ~ h3 {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Labels e textos */
+h3 {
+  color: #e0e0e0;
+  user-select: none;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.pageactive {
+  padding: 10px;
+}
+
+.textoDinamic {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+  user-select: text;
+}
+
+/* Fieldsets com barra customizada */
+fieldset,
+fieldset.opcoesFieldset {
+  border: 1px solid #2d4b2e;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 98%;
+  background-color: #2b2b2b;
+  color: #f5f5f5;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #4CAF50 #333;
+  user-select: text;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  text-align: left;
+  user-select: none;
+}
+
+fieldset::-webkit-scrollbar {
+  width: 8px;
+}
+
+fieldset::-webkit-scrollbar-thumb {
+  background-color: #4CAF50;
+  border-radius: 4px;
+}
+
+fieldset::-webkit-scrollbar-track {
+  background: #333;
+}
+
+/* Spinner */
+.spinnerClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  user-select: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top-color: #28a745;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  user-select: none;
+}
+
+.lebelSpinner {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+  user-select: none;
+}
+.labelLike {
+
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 763px) {
+  body {
+    flex-direction: column;
+    transform: none;
+    padding: 10px;
+    height: auto;
+  }
+
+  .container {
+    width: 85%;
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    height: auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input.tituloEnquete {
+    width: 160px;
+    padding: 12px 15px;
+    margin-bottom: 0px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 0px;
+  }
+
+  input.tituloEnquete {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    padding: 18px 18px;
+    font-size: 18px;
+    background-color: #2c2c2c;
+    border: 2px solid #444;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
+    margin-left: 10px;
+  }
+
+  ul li {
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 18px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: auto;
+    width: 100%;
+    max-width: 270px;
+  }
+
+  a {
+    text-decoration: none;
+    width: 100%;
+  }
+
+  h3 {
+    color: #e0e0e0;
+    width: auto;
+    height: auto;
+    background-color: #222;
+  }
+
+  .deletar {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    margin-left: 3px;
+  }
+
+  .botaoInicial {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  fieldset,
+  fieldset.opcoesFieldset {
+    border: 1px solid #4CAF50;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #2b2b2b;
+    color: #f5f5f5;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #4CAF50 #333;
+    height: auto;
+  }
+
+  .textoDinamic {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+}
