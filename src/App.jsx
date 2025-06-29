@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Create from './Create';
 import CreateSuccessful from './CreateSuccessful';
-import YourTask from './YourTask';
-import Resultados from './Resultados';
+import YourTask from './yourTask';
+import Resultados from './resultados';
 
 function App() {
   return (

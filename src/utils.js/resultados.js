@@ -32,6 +32,7 @@ export async function carregarEnqueteFirebase(rotulo) {
     return opcoes;
   } catch (error) {
     console.error('Erro ao buscar dados no Firebase:', error);
+    
     throw error;
   }
 }
